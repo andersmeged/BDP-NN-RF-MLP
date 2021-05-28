@@ -1,0 +1,124 @@
+import json
+import pandas as pd
+from pandas.io.json import json_normalize
+#Itteratively go through each of the Json Files and flatten them out
+with open('r1.json', encoding='UTF-8') as f:
+    d = json.load(f)
+
+evd = json_normalize(d['hits']['hits'])
+
+evd.info()
+
+import json
+import pandas as pd
+from pandas.io.json import json_normalize
+
+
+with open('r1.json', encoding='UTF-8') as f:
+    d = json.load(f)
+evd = json_normalize(d['hits']['hits'])
+evd_vf = json_normalize(d['hits']['hits'], record_path=['_source', 'Vrvirksomhed', 'virksomhedsform'], meta=['_id'])
+evd_hb = json_normalize(d['hits']['hits'], record_path=['_source', 'Vrvirksomhed', 'hovedbranche'], meta=['_id'])
+e_merge = pd.merge(evd, evd_vf, on='_id', how='inner')
+evd_master = pd.merge(e_merge, evd_hb, on='_id', how='inner')
+evd_master = evd_master.drop(columns=['_source.Vrvirksomhed.virksomhedsform', '_source.Vrvirksomhed.hovedbranche'])
+#evd_master.to_csv('evd1.csv', sep='\t', encoding='utf-8')
+
+evd_master
+# New cell 
+import pandas as pd
+df = pd.read_csv('evd0.csv', sep='\t', encoding='utf-8')
+df.drop(df.index, inplace=True)
+
+#New cell for loading all the csv files into dataframes
+import pandas as pd
+df0 = pd.read_csv('evd0.csv', sep='\t', encoding='utf-8')
+df1 = pd.read_csv('evd1.csv', sep='\t', encoding='utf-8')
+df2 = pd.read_csv('evd2.csv', sep='\t', encoding='utf-8')
+df3 = pd.read_csv('evd3.csv', sep='\t', encoding='utf-8')
+df4 = pd.read_csv('evd4.csv', sep='\t', encoding='utf-8')
+df5 = pd.read_csv('evd5.csv', sep='\t', encoding='utf-8')
+df6 = pd.read_csv('evd6.csv', sep='\t', encoding='utf-8')
+df7 = pd.read_csv('evd7.csv', sep='\t', encoding='utf-8')
+df8 = pd.read_csv('evd8.csv', sep='\t', encoding='utf-8')
+df9 = pd.read_csv('evd9.csv', sep='\t', encoding='utf-8')
+df10 = pd.read_csv('evd10.csv', sep='\t', encoding='utf-8')
+df11 = pd.read_csv('evd11.csv', sep='\t', encoding='utf-8')
+df12 = pd.read_csv('evd12.csv', sep='\t', encoding='utf-8')
+df13 = pd.read_csv('evd13.csv', sep='\t', encoding='utf-8')
+df14 = pd.read_csv('evd14.csv', sep='\t', encoding='utf-8')
+df15 = pd.read_csv('evd15.csv', sep='\t', encoding='utf-8')
+df16 = pd.read_csv('evd16.csv', sep='\t', encoding='utf-8')
+df17 = pd.read_csv('evd17.csv', sep='\t', encoding='utf-8')
+df18 = pd.read_csv('evd18.csv', sep='\t', encoding='utf-8')
+df19 = pd.read_csv('evd19.csv', sep='\t', encoding='utf-8')
+df20 = pd.read_csv('evd20.csv', sep='\t', encoding='utf-8')
+df21 = pd.read_csv('evd21.csv', sep='\t', encoding='utf-8')
+df22 = pd.read_csv('evd22.csv', sep='\t', encoding='utf-8')
+df23 = pd.read_csv('evd23.csv', sep='\t', encoding='utf-8')
+df24 = pd.read_csv('evd24.csv', sep='\t', encoding='utf-8')
+df25 = pd.read_csv('evd25.csv', sep='\t', encoding='utf-8')
+df26 = pd.read_csv('evd26.csv', sep='\t', encoding='utf-8')
+df27 = pd.read_csv('evd27.csv', sep='\t', encoding='utf-8')
+
+
+#New sell for merging the data frames
+df = df.append(df0)
+df = df.append(df1)
+df = df.append(df2)
+df = df.append(df3)
+df = df.append(df4)
+df = df.append(df5)
+df = df.append(df6)
+df = df.append(df7)
+df = df.append(df8)
+df = df.append(df9)
+df = df.append(df10)
+df = df.append(df11)
+df = df.append(df12)
+df = df.append(df13)
+df = df.append(df14)
+df = df.append(df15)
+df = df.append(df16)
+df = df.append(df17)
+df = df.append(df18)
+df = df.append(df19)
+df = df.append(df20)
+df = df.append(df21)
+df = df.append(df22)
+df = df.append(df23)
+df = df.append(df24)
+df = df.append(df25)
+df = df.append(df26)
+df = df.append(df27)
+df
+df0 = pd.read_csv('evd0.csv', sep='\t', encoding='utf-8')
+df1 = pd.read_csv('evd1.csv', sep='\t', encoding='utf-8')
+df2 = pd.read_csv('evd2.csv', sep='\t', encoding='utf-8')
+df3 = pd.read_csv('evd3.csv', sep='\t', encoding='utf-8')
+df4 = pd.read_csv('evd4.csv', sep='\t', encoding='utf-8')
+df5 = pd.read_csv('evd5.csv', sep='\t', encoding='utf-8')
+df6 = pd.read_csv('evd6.csv', sep='\t', encoding='utf-8')
+df7 = pd.read_csv('evd7.csv', sep='\t', encoding='utf-8')
+df8 = pd.read_csv('evd8.csv', sep='\t', encoding='utf-8')
+df9 = pd.read_csv('evd9.csv', sep='\t', encoding='utf-8')
+df10 = pd.read_csv('evd10.csv', sep='\t', encoding='utf-8')
+df11 = pd.read_csv('evd11.csv', sep='\t', encoding='utf-8')
+df12 = pd.read_csv('evd12.csv', sep='\t', encoding='utf-8')
+df13 = pd.read_csv('evd13.csv', sep='\t', encoding='utf-8')
+df14 = pd.read_csv('evd14.csv', sep='\t', encoding='utf-8')
+df15 = pd.read_csv('evd15.csv', sep='\t', encoding='utf-8')
+df16 = pd.read_csv('evd16.csv', sep='\t', encoding='utf-8')
+df17 = pd.read_csv('evd17.csv', sep='\t', encoding='utf-8')
+df18 = pd.read_csv('evd18.csv', sep='\t', encoding='utf-8')
+df19 = pd.read_csv('evd19.csv', sep='\t', encoding='utf-8')
+df20 = pd.read_csv('evd20.csv', sep='\t', encoding='utf-8')
+df21 = pd.read_csv('evd21.csv', sep='\t', encoding='utf-8')
+df22 = pd.read_csv('evd22.csv', sep='\t', encoding='utf-8')
+df23 = pd.read_csv('evd23.csv', sep='\t', encoding='utf-8')
+df24 = pd.read_csv('evd24.csv', sep='\t', encoding='utf-8')
+df25 = pd.read_csv('evd25.csv', sep='\t', encoding='utf-8')
+df26 = pd.read_csv('evd26.csv', sep='\t', encoding='utf-8')
+df27 = pd.read_csv('evd27.csv', sep='\t', encoding='utf-8')
+
+df.to_csv('evd_master.csv', sep='\t', encoding='utf-8')
